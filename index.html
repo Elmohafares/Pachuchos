@@ -1,19 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mi página web</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Adventure</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:wght@400;600;700&display=swap');
+:root{--paper:#f4f1eb;--ink:#171719;--muted:#68656a;--purple:#6846a8;--white:#fffdfa}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:radial-gradient(circle at 15% 10%,#6846a812,transparent 25rem),var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;z-index:20;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;padding:40px 20px}
+.hero-inner{max-width:850px}.tiny{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;border-bottom:1px solid;padding-bottom:7px}
+h1{font:700 clamp(5rem,18vw,11rem)/.72 Caveat,cursive;transform:rotate(-3deg);margin:35px 0 20px}h1 span,.kicker{color:var(--purple)}
+.hero p{max-width:450px;margin:auto;color:var(--muted);line-height:1.7}.date{font:1.35rem Caveat;margin-top:25px}.doodle{position:absolute;color:var(--purple);font:2rem Caveat}.d1{left:7%;top:25%}.d2{right:7%;top:22%}.d3{left:13%;bottom:20%}.d4{right:12%;bottom:18%}.scroll{position:absolute;bottom:25px;font:1.2rem Caveat;color:#777}
+.intro{padding:70px 20px 120px}.intro-inner{max-width:900px;margin:auto}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}.polaroid{background:white;padding:10px 10px 42px;box-shadow:0 14px 35px #19161e20;position:relative}.polaroid:first-child{transform:rotate(-4deg)}.polaroid:last-child{transform:rotate(5deg);margin-top:50px}.polaroid:before{content:"";position:absolute;width:75px;height:20px;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);background:#cdbf99a8}.polaroid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#ddd}.polaroid figcaption{position:absolute;bottom:7px;width:100%;left:0;text-align:center;font:1.2rem Caveat}
+.introtext{text-align:center;max-width:680px;margin:70px auto 0}.kicker{text-transform:uppercase;letter-spacing:.2em;font-size:.65rem;font-weight:700}.introtext h2,.sectionhead h2{font:700 3.5rem/1 Caveat;margin:8px 0 12px}.introtext p,.sectionhead p{color:var(--muted);line-height:1.9}
+.mapsection{padding:100px 18px 140px}.sectionhead{text-align:center;margin-bottom:70px}.sectionhead h2{transform:rotate(-2deg)}
+.map{max-width:760px;margin:auto;position:relative}.route{position:absolute;left:50%;top:15px;bottom:20px;width:4px;transform:translateX(-50%);background:repeating-linear-gradient(#171719 0 12px,transparent 12px 20px)}
+.adventure{position:relative;width:50%;padding:0 38px 85px 0}.adventure:nth-child(even){margin-left:50%;padding:0 0 85px 38px}
+.pin{position:absolute;right:-14px;top:12px;width:29px;height:29px;border:2px solid;border-radius:50%;display:grid;place-items:center;background:var(--paper);z-index:2}.adventure:nth-child(even) .pin{left:-14px;right:auto}
+.card{background:var(--white);border:1px solid #0002;box-shadow:8px 12px #6846a81a,0 14px 35px #19161e20;padding:20px;position:relative}.adventure:nth-child(odd) .card{transform:rotate(-2deg)}.adventure:nth-child(even) .card{transform:rotate(2deg)}.card:before{content:"";position:absolute;width:68px;height:19px;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);background:#cdbf99a8}.date2{font:1.35rem Caveat;color:var(--purple)}.card h3{font-size:1.25rem;margin:3px 0 9px}.card p{font-size:.9rem;color:var(--muted);line-height:1.7}.notephoto{margin-top:16px;padding:6px;background:#ddd;transform:rotate(2deg);box-shadow:0 8px 18px #0002}.notephoto img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}.location{margin-top:12px;font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:#777}
+.album{padding:110px 18px;background:#171719;color:white}.album .sectionhead p{color:#aaa}.album .kicker{color:#a98ae4}.grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.scrap{background:white;color:#171719;padding:9px 9px 34px;box-shadow:0 15px 35px #0005}.scrap:nth-child(1){grid-column:1/6;transform:rotate(-4deg)}.scrap:nth-child(2){grid-column:6/13;margin-top:40px;transform:rotate(3deg)}.scrap:nth-child(3){grid-column:2/8;transform:rotate(2deg)}.scrap:nth-child(4){grid-column:8/13;margin-top:50px;transform:rotate(-5deg)}.scrap img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:#ddd}.scrap span{display:block;padding-top:6px;font:1.2rem Caveat}.albumnote{text-align:center;max-width:450px;margin:70px auto 0;color:#aaa;font:1.5rem Caveat}
+.end{min-height:70svh;display:grid;place-items:center;text-align:center;padding:80px 20px}.end h2{font:700 clamp(4rem,15vw,8rem)/.8 Caveat;transform:rotate(-3deg)}.end h2 span{color:var(--purple)}.end p{margin-top:30px;color:var(--muted)}footer{text-align:center;padding:25px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#888}
+@media(max-width:700px){
+.hero{min-height:92svh}.doodle{font-size:1.5rem}.photos{gap:7px}.polaroid{padding:7px 7px 32px}.polaroid:last-child{margin-top:35px}.polaroid figcaption{font-size:1rem}.introtext{margin-top:55px}.introtext h2,.sectionhead h2{font-size:3.1rem}
+.mapsection{padding-top:75px}.route{left:25px;transform:none}.adventure,.adventure:nth-child(even){width:100%;margin-left:0;padding:0 0 70px 58px}.pin,.adventure:nth-child(even) .pin{left:11px;right:auto}.adventure:nth-child(odd) .card,.adventure:nth-child(even) .card{transform:none}.grid{grid-template-columns:1fr 1fr;gap:14px;padding:0 4px}.scrap:nth-child(1),.scrap:nth-child(2),.scrap:nth-child(3),.scrap:nth-child(4){grid-column:auto;margin-top:0}.scrap:nth-child(1){transform:rotate(-3deg)}.scrap:nth-child(2){transform:rotate(3deg)}.scrap:nth-child(3){transform:rotate(2deg)}.scrap:nth-child(4){transform:rotate(-4deg)}.scrap{padding:6px 6px 28px}.scrap span{font-size:1rem}
+}
+</style>
 </head>
-
 <body>
 
-    <h1>Hola mundo</h1>
+<header class="hero">
+<div class="doodle d1">✦</div><div class="doodle d2">♡</div><div class="doodle d3">→</div><div class="doodle d4">✎</div>
+<div class="hero-inner">
+<div class="tiny">a story worth keeping</div>
+<h1>Our <span>Adventure</span></h1>
+<p>Dos personas, muchos momentos y una historia que todavía estamos escribiendo.</p>
+<div class="date">desde el día en que todo empezó · ♥</div>
+</div><div class="scroll">↓ empieza aquí</div>
+</header>
 
-    <p>Esta es mi primera página web.</p>
+<section class="intro"><div class="intro-inner">
+<div class="photos">
+<figure class="polaroid"><img src="images/ella.jpg" alt="Ella"><figcaption>ella ♡</figcaption></figure>
+<figure class="polaroid"><img src="images/yo.jpg" alt="Yo"><figcaption>yo :)</figcaption></figure>
+</div>
+<div class="introtext"><div class="kicker">Antes de empezar</div><h2>¿Quiénes somos?</h2>
+<p>Aquí escribiremos vuestra presentación: quiénes sois, cómo sois, qué os gusta, cómo empezó todo y cualquier detalle que queráis guardar en esta libreta digital.</p></div>
+</div></section>
 
+<section class="mapsection">
+<div class="sectionhead"><div class="kicker">Capítulo I</div><h2>El camino hasta aquí</h2><p>Una historia en cada parada.</p></div>
+<div class="map"><div class="route"></div>
+
+<!-- COPIA UN BLOQUE .adventure PARA AÑADIR OTRA ETAPA -->
+<article class="adventure"><div class="pin">👋</div><div class="card">
+<div class="date2">01 · 04 · 2026</div><h3>El día que nos conocimos</h3>
+<p>Aquí irá la historia de cómo os conocisteis, desde el primer momento hasta lo que pensasteis aquel día.</p>
+<div class="notephoto"><img src="images/recuerdo-01.jpg" alt="Primer recuerdo"></div><div class="location">📍 Tarragona</div>
+</div></article>
+
+<article class="adventure"><div class="pin">💋</div><div class="card">
+<div class="date2">12 · 04 · 2026</div><h3>Nuestro primer beso</h3>
+<p>Ese momento que, aunque duró unos segundos, acabó convirtiéndose en uno de nuestros recuerdos favoritos.</p>
+<div class="notephoto"><img src="images/recuerdo-02.jpg" alt="Primer beso"></div><div class="location">📍 Aquí empezó algo</div>
+</div></article>
+
+<article class="adventure"><div class="pin">✈️</div><div class="card">
+<div class="date2">01 · 09 · 2026</div><h3>Nuestro primer viaje</h3>
+<p>Maletas, mapas, kilómetros, fotos y una aventura que algún día volveremos a contar.</p>
+<div class="notephoto"><img src="images/recuerdo-03.jpg" alt="Primer viaje"></div><div class="location">📍 Marruecos</div>
+</div></article>
+
+<article class="adventure"><div class="pin">✨</div><div class="card">
+<div class="date2">Próxima parada...</div><h3>Continuará</h3>
+<p>La historia todavía no está terminada. Esta parada espera nuestra siguiente aventura.</p><div class="location">📍 Somewhere with you</div>
+</div></article>
+
+</div></section>
+
+<section class="album"><div class="sectionhead"><div class="kicker">Capítulo II</div><h2>Recortes de nuestra vida</h2><p>Fotos que no necesitan demasiadas palabras.</p></div>
+<div class="grid">
+<figure class="scrap"><img src="images/foto-01.jpg" alt=""><span>un día cualquiera ♡</span></figure>
+<figure class="scrap"><img src="images/foto-02.jpg" alt=""><span>nosotros</span></figure>
+<figure class="scrap"><img src="images/foto-03.jpg" alt=""><span>una aventura más ✈</span></figure>
+<figure class="scrap"><img src="images/foto-04.jpg" alt=""><span>y otra...</span></figure>
+</div>
+<div class="albumnote">“Hay momentos que parecen pequeños hasta que miramos atrás y nos damos cuenta de que eran todo.”</div>
+</section>
+
+<section class="end"><div><div class="kicker">Fin de esta página</div><h2>pero no<br>de nuestra <span>historia.</span></h2><p>♡ todavía quedan muchas aventuras por escribir ♡</p></div></section>
+<footer>hecho con ♥ para guardar nuestros recuerdos</footer>
 </body>
-
 </html>
