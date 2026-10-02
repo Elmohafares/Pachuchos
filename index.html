@@ -1,97 +1,1173 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Our Adventure</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Nuestra pequeña aventura, una historia hecha de recuerdos.">
+<title>Our Adventure · Fares &amp; Love</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:wght@400;600;700&display=swap');
-:root{--paper:#f4f1eb;--ink:#171719;--muted:#68656a;--purple:#6846a8;--white:#fffdfa}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{background:radial-gradient(circle at 15% 10%,#6846a812,transparent 25rem),var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;z-index:20;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
-.hero{min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;padding:40px 20px}
-.hero-inner{max-width:850px}.tiny{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;border-bottom:1px solid;padding-bottom:7px}
-h1{font:700 clamp(5rem,18vw,11rem)/.72 Caveat,cursive;transform:rotate(-3deg);margin:35px 0 20px}h1 span,.kicker{color:var(--purple)}
-.hero p{max-width:450px;margin:auto;color:var(--muted);line-height:1.7}.date{font:1.35rem Caveat;margin-top:25px}.doodle{position:absolute;color:var(--purple);font:2rem Caveat}.d1{left:7%;top:25%}.d2{right:7%;top:22%}.d3{left:13%;bottom:20%}.d4{right:12%;bottom:18%}.scroll{position:absolute;bottom:25px;font:1.2rem Caveat;color:#777}
-.intro{padding:70px 20px 120px}.intro-inner{max-width:900px;margin:auto}
-.photos{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}.polaroid{background:white;padding:10px 10px 42px;box-shadow:0 14px 35px #19161e20;position:relative}.polaroid:first-child{transform:rotate(-4deg)}.polaroid:last-child{transform:rotate(5deg);margin-top:50px}.polaroid:before{content:"";position:absolute;width:75px;height:20px;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);background:#cdbf99a8}.polaroid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#ddd}.polaroid figcaption{position:absolute;bottom:7px;width:100%;left:0;text-align:center;font:1.2rem Caveat}
-.introtext{text-align:center;max-width:680px;margin:70px auto 0}.kicker{text-transform:uppercase;letter-spacing:.2em;font-size:.65rem;font-weight:700}.introtext h2,.sectionhead h2{font:700 3.5rem/1 Caveat;margin:8px 0 12px}.introtext p,.sectionhead p{color:var(--muted);line-height:1.9}
-.mapsection{padding:100px 18px 140px}.sectionhead{text-align:center;margin-bottom:70px}.sectionhead h2{transform:rotate(-2deg)}
-.map{max-width:760px;margin:auto;position:relative}.route{position:absolute;left:50%;top:15px;bottom:20px;width:4px;transform:translateX(-50%);background:repeating-linear-gradient(#171719 0 12px,transparent 12px 20px)}
-.adventure{position:relative;width:50%;padding:0 38px 85px 0}.adventure:nth-child(even){margin-left:50%;padding:0 0 85px 38px}
-.pin{position:absolute;right:-14px;top:12px;width:29px;height:29px;border:2px solid;border-radius:50%;display:grid;place-items:center;background:var(--paper);z-index:2}.adventure:nth-child(even) .pin{left:-14px;right:auto}
-.card{background:var(--white);border:1px solid #0002;box-shadow:8px 12px #6846a81a,0 14px 35px #19161e20;padding:20px;position:relative}.adventure:nth-child(odd) .card{transform:rotate(-2deg)}.adventure:nth-child(even) .card{transform:rotate(2deg)}.card:before{content:"";position:absolute;width:68px;height:19px;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);background:#cdbf99a8}.date2{font:1.35rem Caveat;color:var(--purple)}.card h3{font-size:1.25rem;margin:3px 0 9px}.card p{font-size:.9rem;color:var(--muted);line-height:1.7}.notephoto{margin-top:16px;padding:6px;background:#ddd;transform:rotate(2deg);box-shadow:0 8px 18px #0002}.notephoto img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}.location{margin-top:12px;font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:#777}
-.album{padding:110px 18px;background:#171719;color:white}.album .sectionhead p{color:#aaa}.album .kicker{color:#a98ae4}.grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.scrap{background:white;color:#171719;padding:9px 9px 34px;box-shadow:0 15px 35px #0005}.scrap:nth-child(1){grid-column:1/6;transform:rotate(-4deg)}.scrap:nth-child(2){grid-column:6/13;margin-top:40px;transform:rotate(3deg)}.scrap:nth-child(3){grid-column:2/8;transform:rotate(2deg)}.scrap:nth-child(4){grid-column:8/13;margin-top:50px;transform:rotate(-5deg)}.scrap img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:#ddd}.scrap span{display:block;padding-top:6px;font:1.2rem Caveat}.albumnote{text-align:center;max-width:450px;margin:70px auto 0;color:#aaa;font:1.5rem Caveat}
-.end{min-height:70svh;display:grid;place-items:center;text-align:center;padding:80px 20px}.end h2{font:700 clamp(4rem,15vw,8rem)/.8 Caveat;transform:rotate(-3deg)}.end h2 span{color:var(--purple)}.end p{margin-top:30px;color:var(--muted)}footer{text-align:center;padding:25px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#888}
+:root{
+    --white:#fff;
+    --paper:#fbfbfa;
+    --ink:#101012;
+    --muted:#6f6f75;
+    --purple:#6846a8;
+    --purple2:#8b69c5;
+    --purple-soft:rgba(104,70,168,.10);
+    --tape:rgba(214,198,164,.66);
+    --line:#161618;
+    --shadow:0 18px 45px rgba(16,16,18,.11);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+    background:var(--white);
+    color:var(--ink);
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+body::before{
+    content:"✈   🧭   ✦   📍   🗺   ✎   ⛰   →   📷   ★   🧳   ☁   ♡   ✈   ✦   📍";
+    position:fixed;
+    inset:-12%;
+    z-index:-2;
+    pointer-events:none;
+    color:#111;
+    opacity:.032;
+    font-family:"Caveat",cursive;
+    font-size:clamp(24px,4vw,50px);
+    line-height:3.5;
+    word-spacing:45px;
+    transform:rotate(-8deg);
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.kicker{
+    color:var(--purple);
+    font-size:.68rem;
+    font-weight:800;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+}
+.hand{font-family:"Caveat",cursive}
+.muted{color:var(--muted)}
+
+/* =====================================================
+   FLOATING BACKGROUND DOODLES
+===================================================== */
+.floating{
+    position:fixed;
+    z-index:-1;
+    pointer-events:none;
+    color:#111;
+    opacity:.055;
+    font-family:"Caveat",cursive;
+    font-size:1.4rem;
+    animation:float 8s ease-in-out infinite;
+}
+.f1{left:6%;top:34%}.f2{right:7%;top:45%;animation-delay:1.5s}.f3{left:10%;top:75%;animation-delay:3s}.f4{right:10%;top:78%;animation-delay:4.5s}
+@keyframes float{50%{transform:translateY(-9px) rotate(4deg)}}
+
+/* =====================================================
+   HERO
+===================================================== */
+.hero{
+    min-height:100svh;
+    display:grid;
+    place-items:center;
+    position:relative;
+    text-align:center;
+    padding:45px 20px 90px;
+}
+.hero-inner{width:min(900px,100%)}
+.hero-small{
+    display:inline-block;
+    border-bottom:1.5px solid var(--ink);
+    padding-bottom:7px;
+    font-size:.68rem;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+}
+.hero h1{
+    font-family:"Caveat",cursive;
+    font-weight:700;
+    font-size:clamp(5.3rem,18vw,11rem);
+    line-height:.77;
+    margin:38px 0 28px;
+    transform:rotate(-3deg);
+}
+.hero h1 span{color:var(--purple);display:inline-block}
+.hero-description{
+    max-width:510px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.85;
+    font-size:.94rem;
+}
+.hero-date{
+    margin-top:25px;
+    font-family:"Caveat",cursive;
+    font-size:1.35rem;
+}
+.hero-doodle{
+    position:absolute;
+    color:var(--ink);
+    font-family:"Caveat",cursive;
+    font-size:2rem;
+}
+.hero-doodle.one{left:7%;top:23%;transform:rotate(-15deg)}
+.hero-doodle.two{right:7%;top:20%;transform:rotate(12deg)}
+.hero-doodle.three{left:13%;bottom:21%;transform:rotate(15deg)}
+.hero-doodle.four{right:12%;bottom:18%;transform:rotate(-10deg)}
+.scroll-note{
+    position:absolute;
+    bottom:27px;
+    left:50%;
+    transform:translateX(-50%);
+    color:var(--muted);
+    font-family:"Caveat",cursive;
+    font-size:1.15rem;
+}
+
+/* =====================================================
+   MINI PASSPORT / ORIGINS
+===================================================== */
+.origins{
+    padding:20px 20px 115px;
+}
+.origins-inner{
+    width:min(920px,100%);
+    margin:auto;
+}
+.passport{
+    position:relative;
+    border:1px solid #1112;
+    background:#fff;
+    padding:45px 38px 40px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+.passport::before{
+    content:"TRAVEL NOTES";
+    position:absolute;
+    top:14px;
+    right:18px;
+    font-family:"Caveat",cursive;
+    font-size:.9rem;
+    color:#999;
+    transform:rotate(4deg);
+}
+.passport-title{
+    text-align:center;
+    margin-bottom:28px;
+}
+.passport-title h2{
+    font-family:"Caveat",cursive;
+    font-size:3rem;
+    line-height:1;
+    margin:7px 0;
+}
+.passport-title p{font-size:.78rem;color:var(--muted)}
+.origin-grid{
+    display:grid;
+    grid-template-columns:1fr 70px 1fr 70px 1fr;
+    align-items:center;
+    gap:10px;
+}
+.origin{
+    text-align:center;
+}
+.flag{
+    width:72px;
+    height:48px;
+    margin:auto;
+    border:1px solid #1112;
+    box-shadow:4px 5px 0 var(--purple-soft);
+    display:grid;
+    place-items:center;
+    font-size:1.9rem;
+    background:#fff;
+}
+.origin h3{
+    font-family:"Caveat",cursive;
+    font-size:1.7rem;
+    margin-top:8px;
+}
+.origin p{
+    color:var(--muted);
+    font-size:.7rem;
+    margin-top:2px;
+}
+.route-arrow{
+    text-align:center;
+    font-family:"Caveat",cursive;
+    font-size:2rem;
+    transform:rotate(-5deg);
+}
+.origin-note{
+    margin-top:30px;
+    text-align:center;
+    font-family:"Caveat",cursive;
+    font-size:1.2rem;
+    color:var(--muted);
+}
+
+/* =====================================================
+   INTRO
+===================================================== */
+.intro{padding:40px 20px 130px}
+.intro-inner{width:min(900px,100%);margin:auto}
+.intro-photos{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:26px;
+    align-items:center;
+}
+.polaroid{
+    background:#fff;
+    padding:10px 10px 45px;
+    box-shadow:var(--shadow);
+    position:relative;
+}
+.polaroid:first-child{transform:rotate(-4deg)}
+.polaroid:last-child{transform:rotate(5deg);margin-top:50px}
+.polaroid::before{
+    content:"";
+    position:absolute;
+    width:75px;height:20px;
+    top:-9px;left:50%;
+    transform:translateX(-50%) rotate(-2deg);
+    background:var(--tape);
+}
+.polaroid img{
+    display:block;
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    background:#eee;
+}
+.polaroid figcaption{
+    position:absolute;
+    left:0;bottom:7px;width:100%;
+    text-align:center;
+    font-family:"Caveat",cursive;
+    font-size:1.25rem;
+}
+.intro-text{
+    max-width:690px;
+    margin:78px auto 0;
+    text-align:center;
+}
+.intro-text h2{
+    font-family:"Caveat",cursive;
+    font-size:3.7rem;
+    margin:8px 0 15px;
+}
+.intro-text p{color:var(--muted);line-height:1.9}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+.chapter-nav{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    width:min(900px,calc(100% - 30px));
+    margin:0 auto 60px;
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    padding:7px;
+    background:rgba(255,255,255,.88);
+    border:1px solid #1111;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    backdrop-filter:blur(12px);
+}
+.chapter-nav a{
+    padding:9px 12px;
+    border-radius:30px;
+    font-size:.68rem;
+    font-weight:700;
+    color:#666;
+    transition:.2s;
+}
+.chapter-nav a:hover{background:var(--purple-soft);color:var(--purple)}
+
+/* =====================================================
+   TIMELINE / MAP
+===================================================== */
+.timeline-section{padding:60px 18px 150px;position:relative}
+.section-heading{
+    width:min(700px,100%);
+    margin:0 auto 85px;
+    text-align:center;
+}
+.section-heading h2{
+    font-family:"Caveat",cursive;
+    font-size:clamp(3.2rem,8vw,5rem);
+    line-height:1;
+    margin:8px 0 13px;
+    transform:rotate(-2deg);
+}
+.section-heading p{color:var(--muted);line-height:1.75}
+.timeline{
+    width:min(900px,100%);
+    margin:auto;
+    position:relative;
+}
+.zigzag-line{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:50%;
+    width:110px;
+    height:100%;
+    transform:translateX(-50%);
+    overflow:visible;
+    pointer-events:none;
+}
+.zigzag-line path{
+    fill:none;
+    stroke:var(--line);
+    stroke-width:2.1;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:6 8;
+}
+.timeline-item{
+    width:50%;
+    position:relative;
+    padding:0 62px 115px 0;
+}
+.timeline-item:nth-of-type(even){
+    margin-left:50%;
+    padding:0 0 115px 62px;
+}
+.timeline-pin{
+    position:absolute;
+    top:15px;
+    right:-17px;
+    width:35px;height:35px;
+    border:2px solid var(--ink);
+    background:#fff;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    z-index:3;
+    font-size:1rem;
+    filter:grayscale(1);
+}
+.timeline-item:nth-of-type(even) .timeline-pin{left:-17px;right:auto}
+.memory-card{
+    background:#fff;
+    border:1px solid #1112;
+    box-shadow:9px 13px 0 var(--purple-soft),var(--shadow);
+    padding:24px;
+    position:relative;
+    transition:.25s;
+}
+.timeline-item:nth-of-type(odd) .memory-card{transform:rotate(-2deg)}
+.timeline-item:nth-of-type(even) .memory-card{transform:rotate(2deg)}
+.memory-card:hover{
+    transform:rotate(0) translateY(-5px)!important;
+    box-shadow:12px 17px 0 var(--purple-soft),0 22px 42px rgba(0,0,0,.13);
+}
+.memory-card::before{
+    content:"";
+    position:absolute;
+    width:70px;height:19px;
+    top:-9px;left:50%;
+    transform:translateX(-50%) rotate(-2deg);
+    background:var(--tape);
+}
+.memory-date{color:var(--purple);font-family:"Caveat",cursive;font-size:1.45rem}
+.memory-card h3{font-size:1.25rem;margin:3px 0 10px}
+.memory-card p{color:var(--muted);font-size:.9rem;line-height:1.75}
+.memory-photo{
+    margin-top:17px;
+    padding:6px;
+    background:#f0f0f0;
+    box-shadow:0 8px 18px rgba(0,0,0,.1);
+    transform:rotate(2deg);
+}
+.memory-photo img{
+    width:100%;display:block;
+    aspect-ratio:16/10;
+    object-fit:cover;
+}
+.memory-location{
+    margin-top:14px;
+    color:#777;
+    font-size:.68rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+.big-memory{
+    width:min(680px,100%);
+    margin:10px auto 100px;
+    position:relative;
+    text-align:center;
+}
+.big-memory .memory-photo{
+    transform:rotate(-1deg);
+    padding:9px;
+    background:#fff;
+}
+.big-memory .memory-photo img{aspect-ratio:16/10}
+.big-memory h3{
+    font-family:"Caveat",cursive;
+    font-size:3.1rem;
+    margin:15px 0 5px;
+}
+.big-memory p{color:var(--muted);line-height:1.8}
+
+/* =====================================================
+   ALBUM CATEGORIES
+===================================================== */
+.album-section{
+    padding:115px 18px 150px;
+    background:#f7f7f8;
+    border-top:1px solid #1111;
+}
+.album-categories{width:min(920px,100%);margin:auto;display:grid;gap:80px}
+.album-category{position:relative}
+.category-title{
+    display:flex;
+    align-items:end;
+    gap:13px;
+    margin-bottom:20px;
+}
+.category-number{font-family:"Caveat",cursive;color:var(--purple);font-size:1.3rem}
+.category-title h3{font-family:"Caveat",cursive;font-size:2.5rem;line-height:1}
+.category-title p{color:#777;font-size:.75rem;margin-bottom:3px}
+.category-line{
+    width:100%;
+    height:2px;
+    background:var(--ink);
+    margin-bottom:20px;
+    position:relative;
+}
+.category-line::after{
+    content:"✦";
+    position:absolute;
+    right:0;top:-13px;
+    color:var(--purple);
+    background:#f7f7f8;
+    padding-left:7px;
+}
+.category-photos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+.category-photo{
+    background:#fff;
+    padding:8px 8px 31px;
+    box-shadow:0 10px 25px rgba(0,0,0,.09);
+    position:relative;
+}
+.category-photo:nth-child(1){transform:rotate(-2deg)}
+.category-photo:nth-child(2){transform:rotate(2deg);margin-top:25px}
+.category-photo:nth-child(3){transform:rotate(-1deg)}
+.category-photo img{
+    display:block;
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    background:#ddd;
+}
+.category-photo figcaption{
+    position:absolute;
+    bottom:4px;left:0;width:100%;
+    text-align:center;
+    font-family:"Caveat",cursive;
+    font-size:1rem;
+}
+
+/* =====================================================
+   QUOTE / SCRAP
+===================================================== */
+.quote{
+    padding:95px 20px;
+    text-align:center;
+    background:#fff;
+}
+.quote-inner{
+    width:min(680px,100%);
+    margin:auto;
+}
+.quote-mark{
+    color:var(--purple);
+    font-size:3rem;
+    font-family:"Caveat",cursive;
+}
+.quote p{
+    font-family:"Caveat",cursive;
+    font-size:clamp(2rem,6vw,3.3rem);
+    line-height:1.1;
+    transform:rotate(-1deg);
+}
+.quote small{
+    display:block;
+    margin-top:20px;
+    color:#888;
+}
+
+/* =====================================================
+   FINAL
+===================================================== */
+.ending{
+    min-height:78svh;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:90px 20px;
+}
+.ending h2{
+    font-family:"Caveat",cursive;
+    font-size:clamp(4.3rem,15vw,8.5rem);
+    line-height:.82;
+    transform:rotate(-3deg);
+}
+.ending h2 span{color:var(--purple)}
+.ending p{margin-top:30px;color:var(--muted)}
+footer{
+    text-align:center;
+    padding:25px;
+    color:#888;
+    font-size:.68rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 @media(max-width:700px){
-.hero{min-height:92svh}.doodle{font-size:1.5rem}.photos{gap:7px}.polaroid{padding:7px 7px 32px}.polaroid:last-child{margin-top:35px}.polaroid figcaption{font-size:1rem}.introtext{margin-top:55px}.introtext h2,.sectionhead h2{font-size:3.1rem}
-.mapsection{padding-top:75px}.route{left:25px;transform:none}.adventure,.adventure:nth-child(even){width:100%;margin-left:0;padding:0 0 70px 58px}.pin,.adventure:nth-child(even) .pin{left:11px;right:auto}.adventure:nth-child(odd) .card,.adventure:nth-child(even) .card{transform:none}.grid{grid-template-columns:1fr 1fr;gap:14px;padding:0 4px}.scrap:nth-child(1),.scrap:nth-child(2),.scrap:nth-child(3),.scrap:nth-child(4){grid-column:auto;margin-top:0}.scrap:nth-child(1){transform:rotate(-3deg)}.scrap:nth-child(2){transform:rotate(3deg)}.scrap:nth-child(3){transform:rotate(2deg)}.scrap:nth-child(4){transform:rotate(-4deg)}.scrap{padding:6px 6px 28px}.scrap span{font-size:1rem}
+    .hero{min-height:92svh}
+    .hero h1{font-size:clamp(4.8rem,21vw,7rem)}
+    .hero-doodle{font-size:1.45rem}
+    .hero-doodle.one{left:3%;top:20%}
+    .hero-doodle.two{right:3%;top:25%}
+    .hero-doodle.three{left:5%;bottom:21%}
+    .hero-doodle.four{right:5%;bottom:17%}
+
+    .origins{padding:10px 15px 75px}
+    .passport{padding:40px 14px 28px}
+    .origin-grid{grid-template-columns:1fr 35px 1fr 35px 1fr;gap:2px}
+    .flag{width:55px;height:39px;font-size:1.45rem}
+    .origin h3{font-size:1.35rem}
+    .origin p{font-size:.6rem}
+    .route-arrow{font-size:1.25rem}
+
+    .intro{padding-top:35px}
+    .intro-photos{gap:8px}
+    .polaroid{padding:7px 7px 33px}
+    .polaroid:last-child{margin-top:35px}
+    .polaroid figcaption{font-size:1rem}
+    .intro-text{margin-top:58px}
+    .intro-text h2{font-size:3rem}
+
+    .chapter-nav{
+        width:calc(100% - 20px);
+        overflow-x:auto;
+        justify-content:flex-start;
+        scrollbar-width:none;
+    }
+    .chapter-nav::-webkit-scrollbar{display:none}
+    .chapter-nav a{white-space:nowrap}
+
+    .timeline-section{padding-top:55px}
+    .section-heading{margin-bottom:65px}
+
+    .zigzag-line{
+        left:25px;
+        width:52px;
+        transform:none;
+    }
+    .timeline-item,
+    .timeline-item:nth-of-type(even){
+        width:100%;
+        margin-left:0;
+        padding:0 0 78px 58px;
+    }
+    .timeline-pin,
+    .timeline-item:nth-of-type(even) .timeline-pin{
+        left:8px;
+        right:auto;
+    }
+    .timeline-item:nth-of-type(odd) .memory-card,
+    .timeline-item:nth-of-type(even) .memory-card{
+        transform:none;
+    }
+    .memory-card{padding:19px}
+    .memory-card:hover{transform:none!important}
+
+    .big-memory{margin-bottom:75px}
+    .big-memory h3{font-size:2.7rem}
+
+    .album-section{padding-top:80px}
+    .category-title{align-items:center;flex-wrap:wrap;gap:7px}
+    .category-title h3{font-size:2.15rem}
+    .category-title p{width:100%;margin-left:31px}
+    .category-photos{grid-template-columns:1fr 1fr;gap:12px}
+    .category-photo{padding:6px 6px 28px}
+    .category-photo:nth-child(2){margin-top:20px}
+    .category-photo:nth-child(3){grid-column:1/-1;width:62%;margin:0 auto}
+}
+
+@media(max-width:390px){
+    .hero h1{font-size:4.5rem}
+    .origin h3{font-size:1.15rem}
+    .memory-card h3{font-size:1.1rem}
 }
 </style>
 </head>
+
 <body>
 
-<header class="hero">
-<div class="doodle d1">✦</div><div class="doodle d2">♡</div><div class="doodle d3">→</div><div class="doodle d4">✎</div>
-<div class="hero-inner">
-<div class="tiny">a story worth keeping</div>
-<h1>Our <span>Adventure</span></h1>
-<p>Dos personas, muchos momentos y una historia que todavía estamos escribiendo.</p>
-<div class="date">desde el día en que todo empezó · ♥</div>
-</div><div class="scroll">↓ empieza aquí</div>
+<div class="floating f1">✦</div>
+<div class="floating f2">🧭</div>
+<div class="floating f3">✈</div>
+<div class="floating f4">♡</div>
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+<header class="hero" id="top">
+
+    <div class="hero-doodle one">✦</div>
+    <div class="hero-doodle two">♡</div>
+    <div class="hero-doodle three">→</div>
+    <div class="hero-doodle four">✎</div>
+
+    <div class="hero-inner">
+
+        <div class="hero-small">a story worth keeping</div>
+
+        <h1>
+            Our <span>Adventure</span>
+        </h1>
+
+        <p class="hero-description">
+            Dos personas, tres raíces, muchos lugares y una historia
+            que todavía estamos escribiendo.
+        </p>
+
+        <div class="hero-date">
+            desde el día en que todo empezó · ♥
+        </div>
+
+    </div>
+
+    <div class="scroll-note">↓ empieza aquí</div>
+
 </header>
 
-<section class="intro"><div class="intro-inner">
-<div class="photos">
-<figure class="polaroid"><img src="images/ella.jpg" alt="Ella"><figcaption>ella ♡</figcaption></figure>
-<figure class="polaroid"><img src="images/yo.jpg" alt="Yo"><figcaption>yo :)</figcaption></figure>
-</div>
-<div class="introtext"><div class="kicker">Antes de empezar</div><h2>¿Quiénes somos?</h2>
-<p>Aquí escribiremos vuestra presentación: quiénes sois, cómo sois, qué os gusta, cómo empezó todo y cualquier detalle que queráis guardar en esta libreta digital.</p></div>
-</div></section>
 
-<section class="mapsection">
-<div class="sectionhead"><div class="kicker">Capítulo I</div><h2>El camino hasta aquí</h2><p>Una historia en cada parada.</p></div>
-<div class="map"><div class="route"></div>
+<!-- =====================================================
+     ORÍGENES
+===================================================== -->
+<section class="origins">
 
-<!-- COPIA UN BLOQUE .adventure PARA AÑADIR OTRA ETAPA -->
-<article class="adventure"><div class="pin">👋</div><div class="card">
-<div class="date2">01 · 04 · 2026</div><h3>El día que nos conocimos</h3>
-<p>Aquí irá la historia de cómo os conocisteis, desde el primer momento hasta lo que pensasteis aquel día.</p>
-<div class="notephoto"><img src="images/recuerdo-01.jpg" alt="Primer recuerdo"></div><div class="location">📍 Tarragona</div>
-</div></article>
+    <div class="origins-inner">
 
-<article class="adventure"><div class="pin">💋</div><div class="card">
-<div class="date2">12 · 04 · 2026</div><h3>Nuestro primer beso</h3>
-<p>Ese momento que, aunque duró unos segundos, acabó convirtiéndose en uno de nuestros recuerdos favoritos.</p>
-<div class="notephoto"><img src="images/recuerdo-02.jpg" alt="Primer beso"></div><div class="location">📍 Aquí empezó algo</div>
-</div></article>
+        <div class="passport">
 
-<article class="adventure"><div class="pin">✈️</div><div class="card">
-<div class="date2">01 · 09 · 2026</div><h3>Nuestro primer viaje</h3>
-<p>Maletas, mapas, kilómetros, fotos y una aventura que algún día volveremos a contar.</p>
-<div class="notephoto"><img src="images/recuerdo-03.jpg" alt="Primer viaje"></div><div class="location">📍 Marruecos</div>
-</div></article>
+            <div class="passport-title">
+                <div class="kicker">our little passport</div>
+                <h2>Tres lugares · Una historia</h2>
+                <p>Dos personas que encontraron su camino en España.</p>
+            </div>
 
-<article class="adventure"><div class="pin">✨</div><div class="card">
-<div class="date2">Próxima parada...</div><h3>Continuará</h3>
-<p>La historia todavía no está terminada. Esta parada espera nuestra siguiente aventura.</p><div class="location">📍 Somewhere with you</div>
-</div></article>
+            <div class="origin-grid">
 
-</div></section>
+                <div class="origin">
+                    <div class="flag">🇲🇦</div>
+                    <h3>Marruecos</h3>
+                    <p>mis raíces</p>
+                </div>
 
-<section class="album"><div class="sectionhead"><div class="kicker">Capítulo II</div><h2>Recortes de nuestra vida</h2><p>Fotos que no necesitan demasiadas palabras.</p></div>
-<div class="grid">
-<figure class="scrap"><img src="images/foto-01.jpg" alt=""><span>un día cualquiera ♡</span></figure>
-<figure class="scrap"><img src="images/foto-02.jpg" alt=""><span>nosotros</span></figure>
-<figure class="scrap"><img src="images/foto-03.jpg" alt=""><span>una aventura más ✈</span></figure>
-<figure class="scrap"><img src="images/foto-04.jpg" alt=""><span>y otra...</span></figure>
-</div>
-<div class="albumnote">“Hay momentos que parecen pequeños hasta que miramos atrás y nos damos cuenta de que eran todo.”</div>
+                <div class="route-arrow">→</div>
+
+                <div class="origin">
+                    <div class="flag">🇪🇸</div>
+                    <h3>España</h3>
+                    <p>donde vivimos</p>
+                </div>
+
+                <div class="route-arrow">←</div>
+
+                <div class="origin">
+                    <div class="flag">🇵🇱</div>
+                    <h3>Polonia</h3>
+                    <p>sus raíces</p>
+                </div>
+
+            </div>
+
+            <div class="origin-note">
+                diferentes caminos · el mismo destino ♡
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section class="end"><div><div class="kicker">Fin de esta página</div><h2>pero no<br>de nuestra <span>historia.</span></h2><p>♡ todavía quedan muchas aventuras por escribir ♡</p></div></section>
-<footer>hecho con ♥ para guardar nuestros recuerdos</footer>
+
+<!-- =====================================================
+     PRESENTACIÓN
+===================================================== -->
+<section class="intro" id="about">
+
+    <div class="intro-inner">
+
+        <div class="intro-photos">
+
+            <figure class="polaroid">
+                <img src="images/ella.jpg" alt="Ella">
+                <figcaption>ella ♡</figcaption>
+            </figure>
+
+            <figure class="polaroid">
+                <img src="images/yo.jpg" alt="Yo">
+                <figcaption>yo :)</figcaption>
+            </figure>
+
+        </div>
+
+        <div class="intro-text">
+
+            <div class="kicker">Antes de empezar</div>
+
+            <h2>¿Quiénes somos?</h2>
+
+            <p>
+                Aquí irá vuestra historia antes de la historia:
+                quiénes sois, cómo sois, qué os gusta, cómo se cruzaron
+                vuestros caminos y todo aquello que queráis guardar aquí.
+                Esta página está pensada para ir creciendo con vosotros.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NAVEGACIÓN
+===================================================== -->
+<nav class="chapter-nav" aria-label="Navegación de la historia">
+
+    <a href="#about">01 · Nosotros</a>
+    <a href="#timeline">02 · Historia</a>
+    <a href="#album">03 · Álbum</a>
+    <a href="#ending">04 · Futuro</a>
+
+</nav>
+
+
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
+<section class="timeline-section" id="timeline">
+
+    <div class="section-heading">
+
+        <div class="kicker">Capítulo I</div>
+
+        <h2>El camino hasta aquí</h2>
+
+        <p>
+            Cada parada guarda un momento.
+            El camino cambia de dirección, pero nunca deja de avanzar.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <svg class="zigzag-line"
+             viewBox="0 0 100 1000"
+             preserveAspectRatio="none"
+             aria-hidden="true">
+            <path d="
+                M50 0
+                L16 65
+                L84 140
+                L18 220
+                L82 300
+                L15 380
+                L85 460
+                L18 540
+                L82 620
+                L15 700
+                L85 780
+                L18 860
+                L82 935
+                L50 1000
+            "/>
+        </svg>
+
+
+        <!--
+            PARA AÑADIR OTRA ETAPA:
+            copia un <article class="timeline-item"> completo.
+        -->
+
+        <article class="timeline-item">
+
+            <div class="timeline-pin">👋</div>
+
+            <div class="memory-card">
+
+                <div class="memory-date">01 · 04 · 2026</div>
+
+                <h3>El día que nos conocimos</h3>
+
+                <p>
+                    Aquí irá la historia de cómo os conocisteis:
+                    el lugar, el momento, lo que pasó y todo aquello
+                    que quieras recordar dentro de unos años.
+                </p>
+
+                <div class="memory-photo">
+                    <img src="images/recuerdo-01.jpg" alt="Nuestro primer recuerdo">
+                </div>
+
+                <div class="memory-location">📍 Tarragona</div>
+
+            </div>
+
+        </article>
+
+
+        <article class="timeline-item">
+
+            <div class="timeline-pin">💋</div>
+
+            <div class="memory-card">
+
+                <div class="memory-date">12 · 04 · 2026</div>
+
+                <h3>Nuestro primer beso</h3>
+
+                <p>
+                    Ese momento que duró unos segundos,
+                    pero que terminó convirtiéndose en uno de esos
+                    recuerdos que no queremos perder.
+                </p>
+
+                <div class="memory-photo">
+                    <img src="images/recuerdo-02.jpg" alt="Nuestro primer beso">
+                </div>
+
+                <div class="memory-location">📍 Aquí empezó algo</div>
+
+            </div>
+
+        </article>
+
+
+        <!-- MOMENTO ESPECIAL: FOTO GRANDE -->
+
+        <div class="big-memory">
+
+            <div class="kicker">momento para guardar</div>
+
+            <div class="memory-photo">
+                <img src="images/momento-especial.jpg" alt="Un momento especial">
+            </div>
+
+            <h3>Y entonces supimos que esto era diferente.</h3>
+
+            <p>
+                Este bloque está pensado para los recuerdos que merecen
+                una fotografía grande y un poco más de protagonismo.
+            </p>
+
+        </div>
+
+
+        <article class="timeline-item">
+
+            <div class="timeline-pin">✈️</div>
+
+            <div class="memory-card">
+
+                <div class="memory-date">01 · 09 · 2026</div>
+
+                <h3>Nuestro primer viaje</h3>
+
+                <p>
+                    Maletas, mapas, kilómetros, fotos y una aventura
+                    que algún día volveremos a contar de otra manera.
+                </p>
+
+                <div class="memory-photo">
+                    <img src="images/recuerdo-03.jpg" alt="Nuestro primer viaje">
+                </div>
+
+                <div class="memory-location">📍 Marruecos</div>
+
+            </div>
+
+        </article>
+
+
+        <article class="timeline-item">
+
+            <div class="timeline-pin">🧭</div>
+
+            <div class="memory-card">
+
+                <div class="memory-date">Próxima parada...</div>
+
+                <h3>Lo que venga después</h3>
+
+                <p>
+                    Nuevos viajes, nuevos recuerdos, nuevas fotos.
+                    Esta carta está esperando a que escribamos la siguiente página.
+                </p>
+
+                <div class="memory-location">📍 Somewhere with you</div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FRASE
+===================================================== -->
+<section class="quote">
+
+    <div class="quote-inner">
+
+        <div class="quote-mark">“</div>
+
+        <p>
+            Hay momentos que parecen pequeños
+            hasta que miramos atrás y nos damos cuenta
+            de que eran todo.
+        </p>
+
+        <small>— nuestra historia, página a página</small>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ÁLBUM POR CATEGORÍAS
+===================================================== -->
+<section class="album-section" id="album">
+
+    <div class="section-heading">
+
+        <div class="kicker">Capítulo II</div>
+
+        <h2>El álbum</h2>
+
+        <p>
+            No todos los recuerdos tienen que seguir una línea temporal.
+            Algunos simplemente merecen su propia página.
+        </p>
+
+    </div>
+
+
+    <div class="album-categories">
+
+
+        <!-- ================= CATEGORÍA 1 ================= -->
+
+        <section class="album-category">
+
+            <div class="category-title">
+                <span class="category-number">01.</span>
+                <h3>Nuestros días</h3>
+                <p>pequeños momentos</p>
+            </div>
+
+            <div class="category-line"></div>
+
+            <div class="category-photos">
+
+                <figure class="category-photo">
+                    <img src="images/dias-01.jpg" alt="">
+                    <figcaption>un día cualquiera</figcaption>
+                </figure>
+
+                <figure class="category-photo">
+                    <img src="images/dias-02.jpg" alt="">
+                    <figcaption>nosotros</figcaption>
+                </figure>
+
+                <figure class="category-photo">
+                    <img src="images/dias-03.jpg" alt="">
+                    <figcaption>♡</figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORÍA 2 ================= -->
+
+        <section class="album-category">
+
+            <div class="category-title">
+                <span class="category-number">02.</span>
+                <h3>Viajes</h3>
+                <p>lugares que descubrimos</p>
+            </div>
+
+            <div class="category-line"></div>
+
+            <div class="category-photos">
+
+                <figure class="category-photo">
+                    <img src="images/viajes-01.jpg" alt="">
+                    <figcaption>primer viaje</figcaption>
+                </figure>
+
+                <figure class="category-photo">
+                    <img src="images/viajes-02.jpg" alt="">
+                    <figcaption>kilómetros</figcaption>
+                </figure>
+
+                <figure class="category-photo">
+                    <img src="images/viajes-03.jpg" alt="">
+                    <figcaption>otra aventura ✈</figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORÍA 3 ================= -->
+
+        <section class="album-category">
+
+            <div class="category-title">
+                <span class="category-number">03.</span>
+                <h3>Comida</h3>
+                <p>porque también comemos juntos</p>
+            </div>
+
+            <div class="category-line"></div>
+
+            <div class="category-photos">
+
+                <figure class="category-photo">
+                    <img src="images/comida-01.jpg" alt="">
+                    <figcaption>🍜</figcaption>
+                </figure>
+
+                <figure class="category-photo">
+                    <img src="images/comida-02.jpg" alt="">
+                    <figcaption>otro sitio</figcaption>
+                </figure>
+
+                <figure class="category-photo">
+                    <img src="images/comida-03.jpg" alt="">
+                    <figcaption>otra comida</figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORÍA 4 ================= -->
+
+        <section class="album-category">
+
+            <div class="category-title">
+                <span class="category-number">04.</span>
+                <h3>Momentos random</h3>
+                <p>los que no necesitan explicación</p>
+            </div>
+
+            <div class="category-line"></div>
+
+            <div class="category-photos">
+
+                <figure class="category-photo">
+                    <img src="images/random-01.jpg" alt="">
+                    <figcaption>???</figcaption>
+                </figure>
+
+                <figure class="category-photo">
+                    <img src="images/random-02.jpg" alt="">
+                    <figcaption>😂</figcaption>
+                </figure>
+
+                <figure class="category-photo">
+                    <img src="images/random-03.jpg" alt="">
+                    <figcaption>solo nosotros</figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!--
+            PARA AÑADIR OTRA CATEGORÍA:
+            copia una sección .album-category completa.
+        -->
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL
+===================================================== -->
+<section class="ending" id="ending">
+
+    <div>
+
+        <div class="kicker">Fin de esta página</div>
+
+        <h2>
+            pero no<br>
+            de nuestra <span>historia.</span>
+        </h2>
+
+        <p>
+            ♡ todavía quedan muchas aventuras por escribir ♡
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+    hecho con ♥ para guardar nuestros recuerdos
+</footer>
+
 </body>
 </html>
