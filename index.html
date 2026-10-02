@@ -1,170 +1,112 @@
 <!--
 ╔══════════════════════════════════════════════════════════════════════╗
-║                 GUÍA DE EDICIÓN — PACHUCHOS ADVENTURE              ║
+║              GUÍA DE EDICIÓN — PACHUCHOS ADVENTURE                ║
 ╚══════════════════════════════════════════════════════════════════════╝
 
-Este archivo está pensado para que puedas editarlo SIN romper el diseño.
+Este HTML está preparado para editar textos, fechas y fotografías sin
+tocar el diseño. Usa Ctrl + F para encontrar rápidamente una sección.
 
-REGLA DE ORO:
-- Si solo quieres cambiar textos/fotos/fechas, modifica únicamente el HTML
-  de la sección correspondiente.
-- No borres etiquetas <div> sin saber qué hacen.
-- Cuando quieras añadir un recuerdo al TIMELINE, copia un bloque completo
-  .timeline-item y cambia SOLO sus datos.
-- Las rutas de imágenes son relativas a la carpeta "images/".
+MAPA DEL DOCUMENTO
+──────────────────
+01. HEAD / CSS           → fuentes, colores, tamaños y diseño.
+02. HERO                 → portada.
+03. RAÍCES / ENCUENTRO   → texto sobre vuestros caminos/orígenes.
+04. NOSOTROS             → las dos polaroids.
+05. NAVEGACIÓN           → botones de capítulos.
+06. TIMELINE             → recuerdos y recorrido dibujado.
+07. FRASE                → cita central.
+08. ÁLBUM                → fotos separadas por categorías.
+09. FUTURO               → cierre.
+10. FOOTER               → pie de página.
+11. JAVASCRIPT            → animaciones y efectos.
 
-ESTRUCTURA GENERAL DEL DOCUMENTO
-────────────────────────────────
-1. <head>                 → fuentes, estilos y configuración.
-2. HERO                   → portada principal.
-3. RAÍCES / ENCUENTRO     → presentación de vuestra historia.
-4. NOSOTROS               → las dos polaroids.
-5. NAVEGACIÓN             → botones 01/02/03/04.
-6. TIMELINE / HISTORIA    → recuerdos en forma de ruta.
-7. FRASE                  → cita central.
-8. ÁLBUM                  → fotos agrupadas por categorías.
-9. FUTURO                 → cierre de la historia.
-10. FOOTER                → pie de página.
-11. <!-- ============================================================
-     APARTADO 10 — JAVASCRIPT / ANIMACIONES
-     No necesitas tocar esta parte para añadir recuerdos.
-     El script detecta los elementos por sus clases y les aplica
-     automáticamente las animaciones.
-     ============================================================ -->
-<script>              → animaciones y efectos JavaScript.
+══════════════════════════════════════════════════════════════════════
+CÓMO AÑADIR UN RECUERDO AL TIMELINE SIN ROMPER NADA
+══════════════════════════════════════════════════════════════════════
 
-CÓMO CAMBIAR UNA FOTO
-──────────────────────
-Ejemplo:
-    <img src="images/recuerdo-01.jpg" alt="El día que nos conocimos">
+Cada recuerdo está dentro de un bloque:
 
-Si tu foto se llama "playa.jpg" y está dentro de images/:
-    <img src="images/playa.jpg" alt="Nuestro día en la playa">
-
-Puedes usar .jpg, .jpeg, .png o .webp.
-
-CÓMO AÑADIR UN APARTADO NUEVO AL TIMELINE — MUY IMPORTANTE
-────────────────────────────────────────────────────────────
-NO necesitas modificar el SVG de la línea.
-
-1. Busca un bloque que empiece por:
-       <!--
-╔══════════════════════════════════════════════════════════════════════╗
-║                 AÑADIR UN RECUERDO AL TIMELINE                    ║
-╚══════════════════════════════════════════════════════════════════════╝
-Copia desde <article ...> hasta el </article> del recuerdo completo.
-
-Después cambia únicamente:
-1) <time>       → fecha
-2) <h3>         → título
-3) <p>          → descripción
-4) src="..."    → foto
-5) ubicación    → lugar, si existe
-
-Para alternar el zigzag:
-    class="timeline-item left reveal"
-    class="timeline-item right reveal"
-
-NO dupliques ni edites el <svg class="route-svg">.
-La ruta es una sola y los nuevos recuerdos se colocan alrededor de ella.
--->
-<article class="timeline-item ...">
-
-2. Copia TODO ese <article> hasta su </article>.
-
-3. Pégalo debajo del recuerdo anterior.
-
-4. Cambia:
-   - fecha
-   - título
-   - descripción
-   - foto
-   - ubicación (si la hay)
-
-5. NO cambies:
-   - class="timeline-item ..."
-   - las clases internas
-   - el SVG de la ruta
-   - los scripts
-
-El CSS y JavaScript detectan automáticamente los nuevos
-.timeline-item, por lo que las animaciones seguirán funcionando.
-
-IMPORTANTE SOBRE LA POSICIÓN:
-- "left" y "right" hacen que el recuerdo aparezca a un lado de la ruta.
-- Alterna entre left y right para conservar el efecto zigzag.
-- Si copias un elemento con "timeline-item left", puedes cambiarlo a
-  "timeline-item right".
-- Si quieres muchos recuerdos, simplemente sigue copiando bloques.
-
-EJEMPLO MÍNIMO:
-    <article class="timeline-item right reveal">
-        ...contenido...
+    <article class="timeline-item reveal-left">
+        ...
     </article>
 
-No tienes que crear una nueva línea SVG por cada recuerdo.
+Para añadir uno nuevo:
+1. Busca cualquier <article class="timeline-item ...">.
+2. Copia TODO el bloque <article> ... </article>.
+3. Pégalo debajo del recuerdo que corresponda.
+4. Cambia solamente fecha, título, texto, emoji, foto y ubicación.
+5. Para alternar el lado puedes usar reveal-left o reveal-right.
+6. NO copies ni cambies el <svg class="zigzag-line">. Hay una sola ruta.
 
+EJEMPLO:
+    <article class="timeline-item reveal-right">
+
+        <div class="timeline-pin">🌍</div>
+
+        <div class="memory-card">
+            <div class="memory-date">20 · 10 · 2026</div>
+            <h3>Nuevo recuerdo</h3>
+            <p>La historia de este día...</p>
+            <div class="memory-photo">
+                <img src="images/mi-foto.jpg" alt="Descripción">
+            </div>
+            <div class="memory-location">📍 Barcelona</div>
+        </div>
+
+    </article>
+
+El CSS y JavaScript detectan automáticamente estos elementos, así que
+las animaciones, el revelado al hacer scroll y el efecto de la tarjeta
+seguirán funcionando.
+
+IMPORTANTE:
+- No necesitas crear una nueva línea para cada recuerdo.
+- No necesitas modificar JavaScript para añadir recuerdos.
+- Alterna reveal-left / reveal-right para que la composición respire.
+- Mantén las etiquetas abiertas/cerradas correctamente.
+
+══════════════════════════════════════════════════════════════════════
+CÓMO CAMBIAR FOTOS
+══════════════════════════════════════════════════════════════════════
+
+Si tienes images/playa.jpg:
+    <img src="images/playa.jpg" alt="Nuestro día en la playa">
+
+La carpeta debe quedar, por ejemplo:
+    proyecto/
+    ├── pachuchos_adventure_v5_comentado.html
+    └── images/
+        ├── ella.jpg
+        ├── yo.jpg
+        ├── playa.jpg
+        └── ...
+
+══════════════════════════════════════════════════════════════════════
 CÓMO AÑADIR UNA CATEGORÍA AL ÁLBUM
-───────────────────────────────────
-Busca:
-    <section class="album-category ...">
+══════════════════════════════════════════════════════════════════════
 
-Copia una categoría completa y cambia:
-- nombre de categoría
-- subtítulo
-- nombres de las 3 fotos
+Busca <section class="album-category reveal"> y copia una sección
+completa. Cambia número, nombre, descripción y las imágenes.
 
-Por ejemplo:
-    "Nuestros viajes"
-    "Lugares que queremos guardar"
+Para añadir otra foto dentro de una categoría, copia un:
+    <figure class="category-photo"> ... </figure>
 
-La misma animación se aplicará automáticamente.
+══════════════════════════════════════════════════════════════════════
+QUÉ NO TOCAR SI SOLO QUIERES AÑADIR CONTENIDO
+══════════════════════════════════════════════════════════════════════
 
-CÓMO AÑADIR MÁS FOTOS DENTRO DE UNA CATEGORÍA
-───────────────────────────────────────────────
-Copia un:
-    <figure class="category-photo ...">
+No necesitas tocar: CSS, SVG, filtros, IntersectionObserver ni JS.
+Si solo quieres cambiar recuerdos/fotos/textos, trabaja en el HTML.
+Haz una copia del archivo antes de hacer cambios grandes.
 
-y cambia:
-    src="images/mi-foto.jpg"
-    alt="Descripción de la foto"
+══════════════════════════════════════════════════════════════════════
+NOTA SOBRE LA LÍNEA
+══════════════════════════════════════════════════════════════════════
 
-CÓMO CAMBIAR LOS TEXTOS
-───────────────────────
-Puedes buscar directamente el texto que quieras cambiar con
-Ctrl + F en VS Code / Notepad++.
-
-CÓMO NO ROMPER NADA
-───────────────────
-- Mantén cada etiqueta de apertura <div>, <article>, <section>, etc.
-  con su etiqueta de cierre correspondiente.
-- No elimines las clases CSS si no sabes para qué sirven.
-- No cambies los nombres de las clases.
-- Si quieres eliminar algo, es mejor comentarlo con <!-- ... -->
-  antes que borrar estructuras importantes.
-- Haz una copia del HTML antes de realizar cambios grandes.
-
-ANIMACIONES
-───────────
-Las animaciones se activan automáticamente cuando haces scroll.
-También hay:
-- revelado de elementos
-- zoom de fotografías
-- inclinación de tarjetas
-- partículas al hacer clic
-- barra de progreso de scroll
-- navegación activa
-- ruta zigzag animada
-- efecto de línea dibujada a mano
-- soporte para "prefers-reduced-motion"
-
-La línea del timeline ahora tiene un trazado ligeramente irregular
-y un filtro SVG muy suave para que parezca hecha a mano con un
-rotulador sobre una libreta/mapa.
-
-===============================================================
-FIN DE LA GUÍA RÁPIDA
-===============================================================
+La ruta del timeline está hecha con curvas irregulares en SVG y un
+filtro muy ligero de desplazamiento. Por eso no parece una línea
+geométrica perfecta, sino una ruta trazada a mano sobre una libreta.
+══════════════════════════════════════════════════════════════════════
 -->
 
 <!DOCTYPE html>
@@ -507,7 +449,9 @@ img{max-width:100%}
     stroke-width:2.1;
     stroke-linecap:round;
     stroke-linejoin:round;
-    stroke-dasharray:6 8;
+    stroke-dasharray:7 9;
+    stroke-width:2.2;
+    filter:url(#route-pencil);
 }
 .timeline-item{
     width:50%;
@@ -1045,11 +989,8 @@ footer{
 </head>
 
 <body>
-<!-- ============================================================
-     APARTADO 1 — HERO / PORTADA
-     Cambia aquí el título, subtítulo y pequeños textos de entrada.
-     No es necesario tocar el CSS para cambiar el contenido.
-     ============================================================ -->
+<!-- APARTADO 1 — HERO / PORTADA
+     Cambia aquí el título y los textos de portada. -->
 
 <div class="scroll-progress"><span></span></div>
 
@@ -1095,6 +1036,8 @@ footer{
 <!-- =====================================================
      ORÍGENES · MENCIONADO DE FORMA INDIRECTA
 ===================================================== -->
+<!-- APARTADO 2 — RAÍCES / ENCUENTRO
+     Presentación indirecta de vuestros diferentes caminos. -->
 <section class="origins">
 
     <div class="origins-inner">
@@ -1132,11 +1075,8 @@ footer{
 <!-- =====================================================
      PRESENTACIÓN
 ===================================================== -->
-<!-- ============================================================
-     APARTADO 3 — NOSOTROS
-     Aquí están las dos polaroids.
-     Cambia images/ella.jpg e images/yo.jpg por vuestras fotos.
-     ============================================================ -->
+<!-- APARTADO 3 — NOSOTROS
+     Las dos polaroids principales. Cambia sus src para poner vuestras fotos. -->
 <section class="intro reveal" id="about">
 
     <div class="intro-inner">
@@ -1178,11 +1118,8 @@ footer{
 <!-- =====================================================
      NAVEGACIÓN
 ===================================================== -->
-<!-- ============================================================
-     APARTADO 4 — NAVEGACIÓN
-     Estos enlaces llevan a cada capítulo.
-     Si cambias los IDs de las secciones, actualiza también los href.
-     ============================================================ -->
+<!-- APARTADO 4 — NAVEGACIÓN
+     Los enlaces llevan a los IDs de cada capítulo. -->
 <nav class="chapter-nav" aria-label="Navegación de la historia">
 
     <a href="#about">01 · Nosotros</a>
@@ -1196,12 +1133,8 @@ footer{
 <!-- =====================================================
      TIMELINE
 ===================================================== -->
-<!-- ============================================================
-     APARTADO 5 — TIMELINE / HISTORIA
-     AQUÍ es donde debes añadir nuevos recuerdos.
-     Lee la guía del principio del documento antes de editar.
-     Cada .timeline-item es un recuerdo.
-     ============================================================ -->
+<!-- APARTADO 5 — TIMELINE / HISTORIA
+     Cada article.timeline-item es un recuerdo. Mira la guía superior. -->
 <section class="timeline-section reveal" id="timeline">
 
     <div class="section-heading">
@@ -1224,28 +1157,36 @@ footer{
              viewBox="0 0 100 1000"
              preserveAspectRatio="none"
              aria-hidden="true">
+            <defs>
+                <!-- Efecto muy suave para que la ruta parezca dibujada con lápiz/rotulador. -->
+                <filter id="route-pencil" x="-10%" y="-5%" width="120%" height="110%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="8" result="noise"/>
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.55"/>
+                </filter>
+            </defs>
             <path d="
                 M50 0
-                L16 65
-                L84 140
-                L18 220
-                L82 300
-                L15 380
-                L85 460
-                L18 540
-                L82 620
-                L15 700
-                L85 780
-                L18 860
-                L82 935
-                L50 1000
+                C38 45, 27 78, 18 112
+                C10 146, 69 177, 82 214
+                C94 248, 25 276, 18 315
+                C12 350, 72 382, 84 420
+                C94 455, 29 486, 17 525
+                C8 560, 70 595, 83 633
+                C94 668, 29 699, 18 739
+                C9 773, 70 806, 83 844
+                C94 878, 31 914, 20 949
+                C17 967, 38 987, 50 1000
             "/>
         </svg>
 
 
         <!--
-            PARA AÑADIR OTRA ETAPA:
-            copia un <article class="timeline-item reveal-left"> completo.
+        ================================================================
+        AÑADIR OTRO RECUERDO:
+        Copia un <article class="timeline-item ..."> completo hasta
+        su </article>. Pégalo debajo y cambia fecha, título, texto,
+        emoji, imagen y ubicación. No toques el SVG de arriba.
+        ================================================================
         -->
 
         <article class="timeline-item reveal-left">
@@ -1378,6 +1319,7 @@ footer{
 <!-- =====================================================
      FRASE
 ===================================================== -->
+<!-- APARTADO 6 — FRASE CENTRAL -->
 <section class="quote reveal" >
 
     <div class="quote-inner">
@@ -1400,11 +1342,8 @@ footer{
 <!-- =====================================================
      ÁLBUM POR CATEGORÍAS
 ===================================================== -->
-<!-- ============================================================
-     APARTADO 7 — ÁLBUM DE FOTOS
-     Las fotos están separadas por categorías.
-     Puedes copiar una .album-category completa para crear otra.
-     ============================================================ -->
+<!-- APARTADO 7 — ÁLBUM POR CATEGORÍAS
+     Copia una album-category para crear una categoría nueva. -->
 <section class="album-section reveal" id="album">
 
     <div class="section-heading">
@@ -1592,15 +1531,14 @@ footer{
 
 </section>
 
-<!-- ============================================================
-     APARTADO 9 — FOOTER
-     Pequeño texto final de la página.
-     ============================================================ -->
+<!-- APARTADO 9 — FOOTER -->
 <footer>
     hecho con ♥ para guardar nuestros recuerdos
 </footer>
 
 
+<!-- APARTADO 10 — JAVASCRIPT / ANIMACIONES
+     No lo toques para añadir recuerdos o fotos. -->
 <script>
 (() => {
     "use strict";
